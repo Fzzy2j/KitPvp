@@ -1,0 +1,4 @@
+name: KitPvp
+version: ${project.version}
+main: me.fzzy.kits.KitPvp
+api-version: 1.13
