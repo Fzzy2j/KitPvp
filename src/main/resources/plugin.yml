@@ -1,4 +1,9 @@
 name: KitPvp
-version: ${project.version}
+version: 1.0
 main: me.fzzy.kits.KitPvp
+load: STARTUP
 api-version: 1.13
+commands:
+  kit:
+    description: Brings up the kit menu
+    usage: /kit

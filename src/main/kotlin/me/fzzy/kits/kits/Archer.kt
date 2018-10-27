@@ -9,16 +9,20 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.LeatherArmorMeta
 import java.util.*
 
-object Fighter : Kit() {
+object Archer : Kit() {
 
-    override val name: String = "${ChatColor.BLUE}Fighter"
+    override val name: String = "${ChatColor.BLUE}Archer"
     override val cost: Int = 0
 
     override val weapons: List<ItemStack>
         get() {
-            val item = ItemStack(Material.IRON_SWORD)
+            val item = ItemStack(Material.BOW)
+
+            item.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1)
+            item.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1)
+
             val meta = item.itemMeta
-            meta.displayName = "${ChatColor.WHITE}Fighter Sword"
+            meta.displayName = "${ChatColor.WHITE}Archer Bow"
             item.itemMeta = meta
             return Arrays.asList(item)
         }
@@ -26,34 +30,22 @@ object Fighter : Kit() {
         get() {
             val item = ItemStack(Material.LEATHER_HELMET)
             item.addUnsafeEnchantment(Enchantment.BINDING_CURSE, 1)
-            item.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 1)
+            item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3)
 
             val meta = item.itemMeta as LeatherArmorMeta
-            meta.color = Color.BLUE
+            meta.color = Color.RED
 
             item.itemMeta = meta
 
             return item
         }
-    override val chestplate: ItemStack?
-        get() {
-            val item = ItemStack(Material.LEATHER_CHESTPLATE)
-            item.addUnsafeEnchantment(Enchantment.BINDING_CURSE, 1)
-            item.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 1)
-            return item
-        }
-    override val leggings: ItemStack?
-        get() {
-            val item = ItemStack(Material.LEATHER_LEGGINGS)
-            item.addUnsafeEnchantment(Enchantment.BINDING_CURSE, 1)
-            item.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 1)
-            return item
-        }
+    override val chestplate: ItemStack? = null
+    override val leggings: ItemStack? = null
     override val boots: ItemStack?
         get() {
             val item = ItemStack(Material.LEATHER_BOOTS)
             item.addUnsafeEnchantment(Enchantment.BINDING_CURSE, 1)
-            item.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 1)
+            item.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3)
             return item
         }
 
